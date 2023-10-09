@@ -1,7 +1,5 @@
 # Movielingo :movie_camera: :book:
 
----
-
 ## :bulb: Introduction
 
 **Movielingo** aims to revolutionize the way we learn languages. Ever found yourself binge-watching Netflix and wishing you could combine that with something productive, like learning a new language? Look no further! Movielingo combines language learning with movies and Netflix shows, to create an educational experience that's not just effective, but also fun and engaging!
