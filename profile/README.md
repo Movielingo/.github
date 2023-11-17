@@ -18,6 +18,10 @@
 * Python
 * Spacy.io
 
+## 🛠️ Repositories
+[Movielingo App](https://github.com/Movielingo/movielingo_app)
+[Movielingo Vocabulary Service](https://github.com/Movielingo/VocabularyService)
+
 ## :envelope: Contact
 
 For more information, feel free to [contact us](mailto:constantin.unterkofler@code.berlin).
