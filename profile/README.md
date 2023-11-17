@@ -20,7 +20,11 @@
 
 ## 🛠️ Repositories
 - [Movielingo App](https://github.com/Movielingo/movielingo_app)
-- [Movielingo Vocabulary Service](https://github.com/Movielingo/VocabularyService)
+- [Vocabulary Service](https://github.com/Movielingo/VocabularyService)
+
+## 💾 Database
+![Movielingo drawio](https://github.com/Movielingo/.github/assets/50672977/d923e893-7a94-4159-a636-461f8ad8c74c)
+
 
 ## :envelope: Contact
 
