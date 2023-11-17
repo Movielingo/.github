@@ -25,6 +25,26 @@
 ## 💾 Database
 ![Movielingo_Database-Model drawio](https://github.com/Movielingo/.github/assets/50672977/61690a29-9644-4f80-923b-9862ebb8c96f)
 
+### Requests
+- get all movies
+- search movie by title
+- get all movies by genre
+- get all movies by level
+- get a movie’s details by name/ID
+- get all vocabulary from language levels for a movie
+- get movies for a user
+- get the number of vocabulary for a language level for a movie
+- get all the vocabulary for a movie (for language level)
+- get all due vocabulary for a user’s movie
+- update vocabulary card for a user (box + timestamp
+- update user's movie progress
+- get learning statistics for a user
+    - see how many vocabulary cards for which movie are in the boxes
+    - get all learned vocabulary
+    - see days on which a user has learned with the app
+    - see how much a user has learned
+    - vocabulary that is especially hard for a user to learn?
+
 ## :envelope: Contact
 
 For more information, feel free to [contact us](mailto:constantin.unterkofler@code.berlin).
