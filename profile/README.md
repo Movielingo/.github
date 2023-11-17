@@ -4,9 +4,14 @@
 
 **Movielingo** aims to revolutionize the way we learn languages. Ever found yourself binge-watching Netflix and wishing you could combine that with something productive, like learning a new language? Look no further! Movielingo combines language learning with movies and Netflix shows, to create an educational experience that's not just effective, but also fun and engaging!
 
+Movilingo is a vocabulary-learning app based on movies. Our target group are people who want to improve their skills in a new foreign language. Ideally, they already have basic knowledge (A1) but not enough vocabulary to follow their favourite movie in a foreign language. The idea of the app is that users specifically learn the vocabulary that appears in the movie and that they do not yet know to understand the movie better. With this learning method, users increase their vocabulary and benefit from the advantages of passive learning.
+
+A user should learn the vocabulary according to the [spaced repetition system](https://en.wikipedia.org/wiki/Spaced_repetition). Spaced repetition helps to remember words by showing them to a user at increasing intervals. Words a user struggles with appear more often, while familiar ones are reviewed less frequently. This optimized scheduling enhances your long-term memory, making it easier to recall words when needed.
+
 ## :dart: Why Movielingo?
 
 * **Passive Learning**: Benefit from passive learning techniques to enhance language retention.
+* **Spaced Repetition**: Benefit from the spaced repetition system which is the most effective technique to bring vocabulary into long-term memory.
 * **Engaging Content**: Who says education can't be entertaining? Learn while you watch your favorite shows.
 * **Ease of Use**: Simple and intuitive UI/UX, making it accessible for learners of all ages.
 * **Open Source**: Movielingo is open source and therefore accessible to everyone.
