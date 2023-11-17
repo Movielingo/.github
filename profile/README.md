@@ -19,8 +19,8 @@
 * Spacy.io
 
 ## 🛠️ Repositories
-[Movielingo App](https://github.com/Movielingo/movielingo_app)
-[Movielingo Vocabulary Service](https://github.com/Movielingo/VocabularyService)
+- [Movielingo App](https://github.com/Movielingo/movielingo_app)
+- [Movielingo Vocabulary Service](https://github.com/Movielingo/VocabularyService)
 
 ## :envelope: Contact
 
