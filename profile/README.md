@@ -30,6 +30,21 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 ## 💾 Database
 ![Movielingo_Database-Model drawio](https://github.com/Movielingo/.github/assets/50672977/61690a29-9644-4f80-923b-9862ebb8c96f)
 
+### Design Decisions
+1. Optimized Data Retrieval Strategy
+To achieve this we've minimized the use of sub-collections. This approach allows us to retrieve all necessary data through a single query to a primary collection, enhancing efficiency and reducing complexity.
+
+2. Handling Seasons in Series
+For managing seasons within a series, we've adopted a unique approach:
+
+**Integrated Seasons Field**: Instead of creating separate sub-collections for each season, we've incorporated a seasons field directly within the series document. This field is a Map, an embedded object in the series document where we store additional information for each season's episode.
+
+**Centralized Vocabulary Collection**: The vocabularies for all seasons and their respective episodes are stored in a single, series-specific vocabulary collection. This design simplifies data management and storage by enabling us to retrieve needed vocabulary by using a single query only.
+
+**Composite Index for Specific Retrieval**: We've implemented a `Composite Index`, named ”seriesVocabularySearchIndex”. This index allows for precise retrieval of vocabulary based on the series, season, episode, and language level.
+
+This strategic design enables us to maintain all series vocabularies in one sub-collection while still offering targeted access to vocabularies for specific seasons, episodes, and language levels.
+
 ### Requests
 - get all movies
 - search movie by title
