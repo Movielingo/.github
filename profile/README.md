@@ -31,39 +31,46 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 ![Movielingo_Database-Model drawio](https://github.com/Movielingo/.github/assets/50672977/61690a29-9644-4f80-923b-9862ebb8c96f)
 
 ### Design Decisions
-1. Optimized Data Retrieval Strategy
+Optimized Data Retrieval Strategy
 To achieve this we've minimized the use of sub-collections. This approach allows us to retrieve all necessary data through a single query to a primary collection, enhancing efficiency and reducing complexity.
 
-2. Handling Seasons in Series
-For managing seasons within a series, we've adopted a unique approach:
+1. Handling Seasons in Series
+- For managing seasons within a series, we've adopted a unique approach:
 
-**Integrated Seasons Field**: Instead of creating separate sub-collections for each season, we've incorporated a seasons field directly within the series document. This field is a Map, an embedded object in the series document where we store additional information for each season's episode.
+- **Integrated Seasons Field**: Instead of creating separate sub-collections for each season, we've incorporated a seasons field directly within the series document. This field is a Map, an embedded object in the series document where we store additional information for each season's episode.
 
-**Centralized Vocabulary Collection**: The vocabularies for all seasons and their respective episodes are stored in a single, series-specific vocabulary collection. This design simplifies data management and storage by enabling us to retrieve needed vocabulary by using a single query only.
+- **Centralized Vocabulary Collection**: The vocabularies for all seasons and their respective episodes are stored in a single, series-specific vocabulary collection. This design simplifies data management and storage by enabling us to retrieve needed vocabulary by using a single query only.
 
-**Composite Index for Specific Retrieval**: We've implemented a `Composite Index`, named ”seriesVocabularySearchIndex”. This index allows for precise retrieval of vocabulary based on the series, season, episode, and language level.
+- **Composite Index for Specific Retrieval**: We've implemented a `Composite Index`, named ”seriesVocabularySearchIndex”. This index allows for precise retrieval of vocabulary based on the series, season, episode, and language level.
 
-This strategic design enables us to maintain all series vocabularies in one sub-collection while still offering targeted access to vocabularies for specific seasons, episodes, and language levels.
+- This strategic design enables us to maintain all series vocabularies in one sub-collection while still offering targeted access to vocabularies for specific seasons, episodes, and language levels.
 
-### Requests
-- get all movies
-- search movie by title
-- get all movies by genre
-- get all movies by level
-- get a movie’s details by name/ID
-- get all vocabulary from language levels for a movie
-- get movies for a user
-- get the number of vocabulary for a language level for a movie
-- get all the vocabulary for a movie (for language level)
-- get all due vocabulary for a user’s movie
-- update vocabulary card for a user (box + timestamp
-- update user's movie progress
-- get learning statistics for a user
-    - see how many vocabulary cards for which movie are in the boxes
-    - get all learned vocabulary
-    - see days on which a user has learned with the app
-    - see how much a user has learned
-    - vocabulary that is especially hard for a user to learn?
+2. Handling Full Text Search
+- In order to avoid relying on additional external paid services to perform a full text search when a user want's to search movies by title we implemented a 'semi-full-text-search' using trigrams.
+- A trigram is a group of three consecutive characters taken from a string. For instance, the string "Hello" would be broken down into trigrams as ['Hel', 'ell', 'llo'].
+- Each record in your database stores its trigram representation. When a search query is made, the search string is also converted into trigrams. The system then checks if the trigrams of the search string are present in the trigrams of the records.
+
+## 📋 Contribution List
+
+#### Simple CRUD operations
+- save user
+- get user
+- get all media
+- filter media by genre/ level
+- get movie vocabulary by language level
+- get user's media
+- update user settings
+- delete user
+- get movie vocabulary
+- update user's vocabulary
+- get all learned vocabulary for user
+  
+
+#### Advanced Queries/ Writes
+- search movie by title => using trigrams to not having to use a paid service for full text search
+- save >1000 vocabulary entries using batch writes
+- get all due user's media vocabulary by using composite indexes
+- check whether user already knows a specific word 
 
 ## :envelope: Contact
 
