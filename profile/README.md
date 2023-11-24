@@ -33,9 +33,9 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 
 ### Design Decisions
 1. Optimized Data Retrieval Strategy
-To achieve this we've minimized the use of sub-collections. This approach allows us to retrieve all necessary data through a single query to a primary collection, enhancing efficiency and reducing complexity.
+- To achieve this we've minimized the use of sub-collections. This approach allows us to retrieve all necessary data through a single query to a primary collection, enhancing efficiency and reducing complexity.
 
-2. Handling Seasons in Series
+4. Handling Seasons in Series
 - For managing seasons within a series, we've adopted a unique approach:
 
 - **Integrated Seasons Field**: Instead of creating separate sub-collections for each season, we've incorporated a seasons field directly within the series document. This field is a Map, an embedded object in the series document where we store additional information for each season's episode.
