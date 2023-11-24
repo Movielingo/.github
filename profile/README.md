@@ -32,22 +32,22 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 ![vocab_app-Page-1 drawio(2)](https://github.com/Movielingo/.github/assets/64266832/34f8ba1a-487b-48e1-90e6-9eed8840ceb1)
 
 ### Design Decisions
-Optimized Data Retrieval Strategy
+1. Optimized Data Retrieval Strategy
 To achieve this we've minimized the use of sub-collections. This approach allows us to retrieve all necessary data through a single query to a primary collection, enhancing efficiency and reducing complexity.
 
-1. Handling Seasons in Series
+2. Handling Seasons in Series
 - For managing seasons within a series, we've adopted a unique approach:
 
 - **Integrated Seasons Field**: Instead of creating separate sub-collections for each season, we've incorporated a seasons field directly within the series document. This field is a Map, an embedded object in the series document where we store additional information for each season's episode.
 
-- **Centralized Vocabulary Collection**: The vocabularies for all seasons and their respective episodes are stored in a single, series-specific vocabulary collection. This design simplifies data management and storage by enabling us to retrieve needed vocabulary by using a single query only.
+- **Centralized Vocabulary Collection**: The vocabularies for all seasons and their respective episodes are stored in a single, series-specific vocabulary collection. This design simplifies data management and storage by enabling us to retrieve needed vocabulary using only a single query.
 
 - **Composite Index for Specific Retrieval**: We've implemented a `Composite Index`, named ”seriesVocabularySearchIndex”. This index allows for precise retrieval of vocabulary based on the series, season, episode, and language level.
 
 - This strategic design enables us to maintain all series vocabularies in one sub-collection while still offering targeted access to vocabularies for specific seasons, episodes, and language levels.
 
-2. Handling Full Text Search
-- In order to avoid relying on additional external paid services to perform a full text search when a user want's to search movies by title we implemented a 'semi-full-text-search' using trigrams.
+3. Handling Full-Text Search
+- In order to avoid relying on additional external paid services to perform a full-text search when a user wants to search movies by title, we implemented a 'semi-full-text-search' using trigrams.
 - A trigram is a group of three consecutive characters taken from a string. For instance, the string "Hello" would be broken down into trigrams as ['Hel', 'ell', 'llo'].
 - Each record in your database stores its trigram representation. When a search query is made, the search string is also converted into trigrams. The system then checks if the trigrams of the search string are present in the trigrams of the records.
 
@@ -68,10 +68,10 @@ To achieve this we've minimized the use of sub-collections. This approach allows
   
 
 #### Advanced Queries/ Writes
-- search movie by title => using trigrams to not having to use a paid service for full text search
+- search movie by title => using trigrams to not have to use a paid service for full-text search
 - save >1000 vocabulary entries using batch writes
 - get all due user's media vocabulary by using composite indexes
-- check whether user already knows a specific word 
+- check whether the user already knows a specific word 
 
 ## :envelope: Contact
 
