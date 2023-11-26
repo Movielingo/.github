@@ -29,8 +29,7 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 
 ## 💾 Database
 
-![vocab_app_db drawio](https://github.com/Movielingo/.github/assets/50672977/cac8da70-3f22-44e1-9ea5-40d2b1e0160f)
-
+![vocab_app-DB drawio](https://github.com/Movielingo/.github/assets/50672977/b8da2486-24d1-4dce-bba0-8e44482912ed)
 
 ### Design Decisions
 1. Optimized Data Retrieval Strategy
