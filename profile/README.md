@@ -49,7 +49,7 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 3. Handling Full-Text Search
 - In order to avoid relying on additional external paid services to perform a full-text search when a user wants to search movies by title, we implemented a 'semi-full-text-search' using trigrams.
 - A trigram is a group of three consecutive characters taken from a string. For instance, the string "Hello" would be broken down into trigrams as ['Hel', 'ell', 'llo'].
-- Each record in your database stores its trigram representation. When a search query is made, the search string is also converted into trigrams. The system then checks if the trigrams of the search string are present in the trigrams of the records.
+- Each record in your database stores its trigram representation of the media title. When a search query is made, the search string is also converted into trigrams. The system then checks if the trigrams of the search string are present in the trigrams of the records. As Firestore creates an index for every document top-level-field, we can ensure that the search is efficient.
 
 ## 📋 Contribution List
 
