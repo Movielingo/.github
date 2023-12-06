@@ -71,11 +71,11 @@ A user should learn the vocabulary according to the [spaced repetition system](h
   - get all movies by translation language => optional genres filter 
   - get all series by translation language => optional genres filter 
   - get movie vocabulary by language level, translation language
-- user_media_service (emely)
+- user_media_service (emely, constantin)
   - add episode to user media collection
   - add movie to user media collection
   - get user's media
-  - update user's media progress (Constantin)
+  - update user's media progress
   - get due vocabulary session for user's media
   - get total amount of users due vocabulary for the day
   - update user's vocabulary
