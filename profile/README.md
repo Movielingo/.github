@@ -59,9 +59,11 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 
 ## 📋 Contribution List
 
-#### Simple CRUD operations
+#### CRUD operations
 - user_service (Constantin)
-  - save user
+  - firebase authentication
+  - create user
+  - get user information from firebase authentication
   - get user
   - delete user
   - update user
