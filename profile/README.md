@@ -81,7 +81,7 @@ A user should learn the vocabulary according to the [spaced repetition system](h
   - update user's vocabulary
   
 
-#### Advanced Queries/ Writes
+#### Advanced Queries/ Writes (emely)
 - search media by title => using trigrams to not have to use a paid service for full-text search
 - save >1000 vocabularies entries using batch writes => when creating media doc and when adding media to user
 - get total amount of user's due vocabularies by using composite indexe
