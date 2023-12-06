@@ -35,19 +35,24 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 ### Design Decisions
 1. Optimized Data Retrieval Strategy
 - To achieve this we've minimized the use of sub-collections. This approach allows us to retrieve all necessary data through a single query to a primary collection, enhancing efficiency and reducing complexity.
+- We tried to minimize the amount of database queries needed. As a rule of thumb, we aimed to have 1 query per screen.
 
-2. Handling Seasons in Series
-- For managing seasons within a series, we've adopted a unique approach:
+2. Handling Seasons and Episodes in Series
+- For managing seasons and episodes within a series, we came up with the following approach:
 
-- **Integrated Seasons Field**: Instead of creating separate sub-collections for each season, we've incorporated a seasons field directly within the series document. This field is a Map, an embedded object in the series document where we store additional information for each season's episode.
+- **Integrated Seasons Field**: Instead of creating separate sub-collections for each season or episode, we've incorporated an episodeDetails field directly within the series document. This field is an array of maps. Every map entry stores additional information for each season's episode.
 
 - **Centralized Vocabulary Collection**: The vocabularies for all seasons and their respective episodes are stored in a single, series-specific vocabulary collection. This design simplifies data management and storage by enabling us to retrieve needed vocabulary using only a single query.
 
-- **Composite Index for Specific Retrieval**: We've implemented a `Composite Index`, named ”seriesVocabularySearchIndex”. This index allows for precise retrieval of vocabulary based on the series, season, episode, and language level.
+- **Composite Index for Specific Retrieval**: When a user decides to learn a specific movie or series episode, the respective vocabulary is stored in the user's subcollection named "UserVocabularies". All vocabulary from different series and movies is stored in the same collection, allowing us to handle requests like "get all users' due vocabulary" with a single database query using composite indexes.
 
-- This strategic design enables us to maintain all series vocabularies in one sub-collection while still offering targeted access to vocabularies for specific seasons, episodes, and language levels.
+3. Handling Users who want to learn multiple languages and Users who have different mother tongues
+- For every language that a user can learn with our app we created a separate media collection. We store the vocabulary for users with different mother tongues (translation language) in the same media collection.
+- We store all the different translation languages that we offer for a media item in the media document as an array.
+- This allows us to filter media collections and vocabularies effectively without having to run queries on multiple different collections and still being able to filter for media language, language level, media title and media genres.
+   
 
-3. Handling Full-Text Search
+5. Handling Full-Text Search
 - In order to avoid relying on additional external paid services to perform a full-text search when a user wants to search movies by title, we implemented a 'semi-full-text-search' using trigrams.
 - A trigram is a group of three consecutive characters taken from a string. For instance, the string "Hello" would be broken down into trigrams as ['Hel', 'ell', 'llo'].
 - Each record in your database stores its trigram representation of the media title. When a search query is made, the search string is also converted into trigrams. The system then checks if the trigrams of the search string are present in the trigrams of the records. As Firestore creates an index for every document top-level-field, we can ensure that the search is efficient.
@@ -55,24 +60,33 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 ## 📋 Contribution List
 
 #### Simple CRUD operations
-- save user
-- get user
-- get all media
-- filter media by genre/ level
-- get movie vocabulary by language level
-- get user's media
-- update user settings
-- delete user
-- get movie vocabulary
-- update user's vocabulary
-- get all learned vocabulary for user
+- user_service (Constantin)
+  - save user
+  - get user
+  - delete user
+  - update user
+- media_service (emely)
+  - get media by id
+  - get all media by translation language => optional genres filter 
+  - get all movies by translation language => optional genres filter 
+  - get all series by translation language => optional genres filter 
+  - get movie vocabulary by language level, translation language
+- user_media_service (emely)
+  - add episode to user media collection
+  - add movie to user media collection
+  - get user's media
+  - update user's media progress (Constantin)
+  - get due vocabulary session for user's media
+  - get total amount of users due vocabulary for the day
+  - update user's vocabulary
   
 
 #### Advanced Queries/ Writes
-- search movie by title => using trigrams to not have to use a paid service for full-text search
-- save >1000 vocabulary entries using batch writes
-- get all due user's media vocabulary by using composite indexes
-- check whether the user already knows a specific word 
+- search media by title => using trigrams to not have to use a paid service for full-text search
+- save >1000 vocabularies entries using batch writes => when creating media doc and when adding media to user
+- get total amount of user's due vocabularies by using composite indexe
+- get vocabulary session for user's media by using composite indexe
+- updating user vocabularies by using transactions
 
 ## :envelope: Contact
 
