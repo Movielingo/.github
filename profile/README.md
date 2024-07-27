@@ -60,20 +60,20 @@ A user should learn the vocabulary according to the [spaced repetition system](h
 ## 📋 Contribution List
 
 #### CRUD operations
-- user_service (Constantin)
+- user_service
   - firebase authentication
   - create user
   - get user information from firebase authentication
   - get user
   - delete user
   - update user
-- media_service (emely)
+- media_service
   - get media by id
   - get all media by translation language => optional genres filter 
   - get all movies by translation language => optional genres filter 
   - get all series by translation language => optional genres filter 
   - get movie vocabulary by language level, translation language
-- user_media_service (emely, constantin)
+- user_media_service
   - add episode to user media collection
   - add movie to user media collection
   - get user's media
@@ -83,7 +83,7 @@ A user should learn the vocabulary according to the [spaced repetition system](h
   - update user's vocabulary
   
 
-#### Advanced Queries/ Writes (emely)
+#### Advanced Queries/ Writes
 - search media by title => using trigrams to not have to use a paid service for full-text search
 - save >1000 vocabularies entries using batch writes => when creating media doc and when adding media to user
 - get total amount of user's due vocabularies by using composite indexe
